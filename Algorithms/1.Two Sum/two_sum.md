@@ -29,6 +29,7 @@ return [0, 1].
 ##### 方法一：暴力破解法
 ```swift
 func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+
     if nums.count < 2 {
         return[]
     }
@@ -45,6 +46,7 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 ##### 方法二：哈希表
 ```swift
 func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+
     if nums.count < 2 {
         return []
     }
@@ -63,6 +65,7 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 ##### 方法三：哈希表
 ```swift
 func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+
     if nums.count < 2 {
         return[]
     }
