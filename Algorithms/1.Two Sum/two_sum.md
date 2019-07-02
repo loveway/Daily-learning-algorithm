@@ -29,6 +29,7 @@ return [0, 1].
 ##### 方法一：暴力破解法
 ```swift
 func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+
     if nums.count < 2 {
         return[]
     }
@@ -45,16 +46,17 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 ##### 方法二：哈希表
 ```swift
 func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+
     if nums.count < 2 {
         return []
     }
     var tmpDic = [Int:Int]()
     for i in 0..<nums.count {
         let a = target - nums[i]
-        if tmpDic.keys.contains(a) {
+        if tmpDic.keys.contains(a) {//如果存储的 dic 里面的 key 包涵 a，则为找到另外一个数，它的 index 为 tmpDic[a]!
             return [i, tmpDic[a]!]
         }
-        tmpDic[nums[i]] = i
+        tmpDic[nums[i]] = i//以值为 key，index 为 value 存储，这里注意下
     }
     return []
 }
@@ -63,6 +65,7 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 ##### 方法三：哈希表
 ```swift
 func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+
     if nums.count < 2 {
         return[]
     }
@@ -77,7 +80,7 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 }
 ```
 ## 结果:
-|方法| 时间复杂度 | 空间复杂度 | 执行用时(ms) | 内存消耗(MB) |
+|方法| 时间复杂度（T(n) | 空间复杂度（S(n)）| 执行用时(ms) | 内存消耗(MB) |
 |:-------:|:-------:|:-------:|:-------:|:-------:|
 | 方法一 | O(n2)| O(1) | 756 | 21.3 |
 | 方法二 | O(n) | O(n) | 80  | 22.5 |
