@@ -41,7 +41,6 @@ Explanation: The array represents the integer 4321.
 ##### 方法一：
 ```swift
 func plusOne(_ digits: [Int]) -> [Int] {
-    
     let length = digits.count
     var add = 0
     var res: [Int] = []
