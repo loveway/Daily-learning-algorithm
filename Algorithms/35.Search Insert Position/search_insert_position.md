@@ -66,7 +66,25 @@ func searchInsert(_ nums: [Int], _ target: Int) -> Int {
 ```
 ##### 方法二 ：二分法
 ```swift
-
+func searchInsert(_ nums: [Int], _ target: Int) -> Int {
+    if nums.count == 0 {
+        return 0
+    }
+    var left = 0
+    var right = nums.count - 1
+    var mid = 0
+    repeat {
+        mid = (left + right) / 2//取中间值
+        if target == nums[mid] {//找到则直接返回
+            return mid
+        } else if target > nums[mid] {//如果 target > nums[mid], 则说明 nums[mid + 1] <= target <= nums[right]
+            left = mid + 1
+        } else {//如果 target < nums[mid], 则说明 nums[left] <= target <= nums[mid - 1]
+            right = mid - 1
+        }
+    } while left <= right
+    return left
+}
 ```
 
 ## 结果:
