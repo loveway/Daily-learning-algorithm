@@ -15,8 +15,7 @@ Output: 2
 ```
 Input: 8
 Output: 2
-Explanation: The square root of 8 is 2.82842..., and since 
-             the decimal part is truncated, 2 is returned.
+Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
 
 ```
 # 69. x 的平方根
@@ -35,8 +34,7 @@ Explanation: The square root of 8 is 2.82842..., and since
 ```
 输入: 8
 输出: 2
-说明: 8 的平方根是 2.82842..., 
-     由于返回类型是整数，小数部分将被舍去。
+说明: 8 的平方根是 2.82842..., 由于返回类型是整数，小数部分将被舍去。
 ```
 ## 解法:
 ##### 方法一：内置函数法
