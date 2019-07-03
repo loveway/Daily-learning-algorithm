@@ -64,25 +64,13 @@ func searchInsert(_ nums: [Int], _ target: Int) -> Int {
     return nums.count//如果循环完毕仍然没有返回结果，说明 target 应该插在最后，对应的 index 就是 nums.count
 }
 ```
-##### 方法二（简洁）：
+##### 方法二 ：二分法
 ```swift
-func plusOne(_ digits: [Int]) -> [Int] {
-    let length = digits.count
-    var res = digits
-    for i in (0..<length).reversed() {//index 倒序循环
-        res[i] += 1//每一位直接 +1
-        res[i] %= 10//对 10 取余
-        if res[i] != 0 {//+1 后如果能不能被 10 整除，说明这一位不是 9，则 +1 后直接返回 res。如果能被 10 整除说明还需要向前循环一次
-            return res
-        }
-    }
-    res.insert(1, at: 0)//如果循环完毕还没有返回 res，说明原数组 digits 是[9]、[9, 9]、[9, 9, 9] 元素全是 9 这样的数组，则需要把第一位置为 0 同时在首位插入 1，改变元素组个数
-    return res
-}
+
 ```
 
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
 |:-------:|:-------:|:-------:|:-------:|:-------:|
-| 方法一 | O(n) | O(n) |  8   | 20.6 |
-| 方法二 | O(n) | O(n) |  24  | 20.3 |
+| 方法一 | O(n) | O(1) |  48  | 21.1 |
+| 方法二 | O(log(n)) | O(1) |  52  | 21.8 |
