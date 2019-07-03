@@ -5,3 +5,4 @@
 |:-------:|:-------:|:-------:|:-------:|
 | 1 | [Two Sum](https://leetcode.com/problems/two-sum) | [Solution](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/1.Two%20Sum/two_sum.md) | 2019.7.1 | 
 | 66 | [Plus One](https://leetcode.com/problems/plus-one) | [Solution](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/66.Plus%20One/plus_one.md) | 2019.7.2| 
+| 35 | [Search Insert Position](https://leetcode.com/problems/search-insert-position) | [Solution](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/66.Plus%20One/plus_one.md) | 2019.7.2| 
