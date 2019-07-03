@@ -1,69 +1,67 @@
 
-# 66. Plus One
-Given a **non-empty** array of digits representing a non-negative integer, plus one to the integer.
+# 35. Search Insert Position
+Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
-The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.
-
-You may assume the integer does not contain any leading zero, except the number 0 itself.
+You may assume no duplicates in the array.
 
 **Example 1:**
 ```
-Input: [1,2,3]
-Output: [1,2,4]
-Explanation: The array represents the integer 123.
+Input: [1,3,5,6], 5
+Output: 2
 ```
 **Example 2:**
 ```
-Input: [4,3,2,1]
-Output: [4,3,2,2]
-Explanation: The array represents the integer 4321.
+Input: [1,3,5,6], 2
+Output: 1
 ```
-# 66. 加一
-给定一个由**整数**组成的非空数组所表示的非负整数，在该数的基础上加一。
+**Example 3:**
+```
+Input: [1,3,5,6], 7
+Output: 4
+```
+**Example 4:**
+```
+Input: [1,3,5,6], 0
+Output: 0
+```
+# 35. 搜索插入位置
+给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
 
-最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。
-
-你可以假设除了整数 0 之外，这个整数不会以零开头。
+你可以假设数组中无重复元素。
 
 **示例 1:**
 ```
-输入: [1,2,3]
-输出: [1,2,4]
-解释: 输入数组表示数字 123。
+输入: [1,3,5,6], 5
+输出: 2
 ```
 **示例 2:**
 ```
-输入: [4,3,2,1]
-输出: [4,3,2,2]
-解释: 输入数组表示数字 4321。
+输入: [1,3,5,6], 2
+输出: 1
+```
+**示例 3:**
+```
+输入: [1,3,5,6], 7
+输出: 4
+```
+**示例 4:**
+```
+输入: [1,3,5,6], 0
+输出: 0
 ```
 ## 解法:
-##### 方法一：
+##### 方法一：暴力循环
 ```swift
-func plusOne(_ digits: [Int]) -> [Int] {
-    
-    let length = digits.count
-    var add = 0
-    var res: [Int] = []
-    for i in stride(from: length - 1, through: 0, by: -1) {//index 倒序循环
-        var num = digits[i]
-        if i == length - 1 {
-            num += 1//如果是数组最后一个元素直接 +1
-        } else {
-            num += add//不是最后一位直接加上这个 add
-        }
-        add = 0//这儿注意需要将 add 置为 0
-        if num == 10 {//如果元素 +1 后为 10，也就是元素为 9 ，则将这个元素置为 0 ，然后 add == 1，继续下一次循环（也就是继续向前循环）
-            num = 0
-            add = 1
-        }
-        res.append(num)
+func searchInsert(_ nums: [Int], _ target: Int) -> Int {
+    if nums.count == 0 {
+        return 0
     }
-    res.reverse()//因为之前是倒序，所以这里需要 reverse 一下
-    if add == 1 {//如果循环结束，add 仍然为 1，说明数组第一位为 9 ，则需要把第一位置为 0 同时在首位插入 1（进入这个逻辑则说明原数组 digits 是[9]、[9, 9]、[9, 9, 9] 元素全是 9 这样的数组）
-        res.insert(1, at: 0)
+    for i in 0..<nums.count {
+        if  nums[i] >= target  {//直接循环，如果 nums[i] >= target 说明 target 就在应该在 i 这个位置，直接返回 i
+            return i
+        }
     }
-    return res
+    return nums.count//如果循环完毕仍然没有返回结果，说明 target 应该插在最后，对应的 index 就是 nums.count
 }
 ```
 ##### 方法二（简洁）：
