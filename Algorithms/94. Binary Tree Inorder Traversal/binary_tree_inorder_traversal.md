@@ -298,24 +298,69 @@ currentNode = nil
 到这里就结束了，这里详细列出了整个过程，希望大家了解这种迭代法。
 
 
-##### 方法三 ：牛顿迭代法（牛顿-拉弗森方法）
+#### 方法三 ：莫里斯遍历
 ```swift
-func mySqrt(_ x: Int) -> Int {
-    if x == 0 {
-        return 0
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public var val: Int
+ *     public var left: TreeNode?
+ *     public var right: TreeNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.left = nil
+ *         self.right = nil
+ *     }
+ * }
+ */
+class Solution {
+    func inorderTraversal(_ root: TreeNode?) -> [Int] {
+        guard root != nil else { return [] }
+        var res = [Int]()
+        var currentNode = root
+        var pre: TreeNode?
+        while currentNode != nil {
+            if currentNode!.left == nil {
+                res.append(currentNode!.val)
+                currentNode = currentNode!.right
+            } else {
+                pre = currentNode!.left
+                while pre?.right != nil {
+                    pre = pre?.right
+                }
+                pre?.right = currentNode
+                let tmp = currentNode
+                currentNode = currentNode?.left
+                tmp?.left = nil
+            }
+        }
+        return res
     }
-    var res = x
-    while res * res > x {
-       res = (res + x / res) / 2
-    }
-    return res
 }
 ```
-> 对于牛顿迭代法先前也是不了解，看到别人的解法中有这么一个觉得思路还是蛮好的，想了解的同学可以看看知乎上[如何通俗易懂地讲解牛顿迭代法求开方？数值分析？](https://www.zhihu.com/question/20690553/answer/146104283)这个回答，讲的还是很详细的。
+> 关于莫里斯方法可以看看 [莫里斯方法解析](https://stackoverflow.com/questions/5502916/explain-morris-inorder-tree-traversal-without-using-stacks-or-recursion)，主要方法就是
+>
+> 1: 将当前节点 current 初始化为根节点
+>
+> 2: While current 不为空，
+>
+```
+若current没有左子节点
 
+    a. 将current添加到输出
+
+    b. 进入右子树，亦即, current = current.right
+
+否则
+
+    a. 在current的左子树中，令current成为最右侧节点的右子节点
+
+    b. 进入左子树，亦即，current = current.left
+
+```
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
 |:-------:|:-------:|:-------:|:-------:|:-------:|
-| 方法一 |   O(1)  | O(1) |  16  | 20.2 |
-| 方法二 | O(logn) | O(1) |  16  | 20.4 |
-| 方法三 |    -    | O(1) |  20  | 20.7 |
+| 方法一 |   O(n)  | O(n) |  8  | 21 |
+| 方法二 |   O(n)  | O(n) |  12  | 20.4 |
+| 方法三 |   O(n)  | O(n) |  12  | 20.5 |
