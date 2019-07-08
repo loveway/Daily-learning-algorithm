@@ -50,7 +50,7 @@ func mySqrt(_ x: Int) -> Int {
         return 0
     }
     var left = 0
-    var right = x / 2 + 1
+    var right = x / 2 + 1//开平方以后的值肯定小于 x / 2 + 1
     var mid = 0
     var res = 0
 
