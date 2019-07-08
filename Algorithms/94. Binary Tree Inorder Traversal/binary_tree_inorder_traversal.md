@@ -34,7 +34,7 @@ Output: [1,3,2]
 **进阶:** 递归算法很简单，你可以通过迭代算法完成吗？
 
 ## 解法:
-##### 方法一：[递归](https://zh.wikipedia.org/wiki/%E9%80%92%E5%BD%92)
+##### 方法一：递归
 ```swift
 /**
  * Definition for a binary tree node.
@@ -61,30 +61,41 @@ class Solution {
     }
 }
 ```
-如果不清楚递归的定义或者对递归还有疑问的童鞋可以看看 [彻底理解递归，从递归的本质说起！](https://blog.csdn.net/allenchenhh133/article/details/80291252) 这篇文章。
-##### 方法二 ：二分法
+> 如果不清楚 [递归](https://zh.wikipedia.org/wiki/%E9%80%92%E5%BD%92) 的定义或者对递归还有疑问的童鞋可以看看 [彻底理解递归，从递归的本质说起！](https://blog.csdn.net/allenchenhh133/article/details/80291252) 这篇文章。
+##### 方法二 ：迭代法
 ```swift
-func mySqrt(_ x: Int) -> Int {
-    if x == 0 {
-        return 0
-    }
-    var left = 0
-    var right = x / 2 + 1//开平方以后的值肯定小于 x / 2 + 1
-    var mid = 0
-    var res = 0
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public var val: Int
+ *     public var left: TreeNode?
+ *     public var right: TreeNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.left = nil
+ *         self.right = nil
+ *     }
+ * }
+ */
 
-    while left <= right {
-        mid = (left + right) / 2
-        res = mid * mid
-        if res == x {
-            return mid
-        } else if res > x {
-            right = mid - 1
-        } else {
-            left = mid + 1
+class Solution {
+    func inorderTraversal(_ root: TreeNode?) -> [Int] {
+        guard root != nil else { return [] }
+        var res = [Int]()
+        var currentNode = root
+        var nodeStack = [TreeNode]()
+        while !nodeStack.isEmpty || currentNode != nil {
+            if currentNode != nil {
+                nodeStack.append(currentNode!)
+                currentNode = currentNode?.left
+            } else {
+                let tmp = nodeStack.popLast()
+                res.append(tmp!.val)
+                currentNode = tmp!.right
+            }
         }
+        return res
     }
-    return right
 }
 ```
 ##### 方法三 ：牛顿迭代法（牛顿-拉弗森方法）
