@@ -34,7 +34,7 @@ Output: [1,3,2]
 **进阶:** 递归算法很简单，你可以通过迭代算法完成吗？
 
 ## 解法:
-##### 方法一：递归
+#### 方法一：递归
 ```swift
 /**
  * Definition for a binary tree node.
@@ -62,7 +62,7 @@ class Solution {
 }
 ```
 > 如果不清楚 [递归](https://zh.wikipedia.org/wiki/%E9%80%92%E5%BD%92) 的定义或者对递归还有疑问的童鞋可以看看 [彻底理解递归，从递归的本质说起！](https://blog.csdn.net/allenchenhh133/article/details/80291252) 这篇文章。
-##### 方法二 ：迭代法
+#### 方法二 ：迭代法
 ```swift
 /**
  * Definition for a binary tree node.
@@ -98,6 +98,206 @@ class Solution {
     }
 }
 ```
+
+这里的迭代法我来说一下流程，加入我们输入的 root 如下：
+```
+          1
+        /   \
+       2     3
+      / \   /
+     4   5 6
+```
+那么根据判断条件 currentNode 和 nodeStack 只要有一个不为空就继续循环，此时 currentNode 不为空，第一次循环结束 `nodeStack = [1], currentNode = 2` ，继续循环 1，2，4，当 currentNode 为空时可知此时 `nodeStack = [1, 2, 4]` 则进入 else 的循环，进入以后 `tmp = 4, nodeStack = [1, 2]` 继续循环，过程如下：
+
+##### 1：进入 if 
+```
+currentNode =     1
+                /   \
+               2     3
+              / \   /
+             4   5 6
+             
+nodeStack =           1
+                    /   \
+            [      2     3    ]
+                  / \   /
+                 4   5 6 
+
+res = []
+
+currentNode =  2     
+              / \   
+             4   5
+```
+##### 2：进入 if 
+```
+currentNode =  2     
+              / \   
+             4   5
+             
+nodeStack =           1      
+                    /   \       2 
+            [      2     3 ,   / \       ]
+                  / \   /     4   5
+                 4   5 6 
+                 
+res = []
+
+currentNode = 4
+```
+##### 3：进入 if 
+```
+currentNode = 4
+
+nodeStack =           1      
+                    /   \       2 
+            [      2     3 ,   / \  , 4     ]
+                  / \   /     4   5
+                 4   5 6 
+                 
+res = []
+
+currentNode = nil
+```
+##### 4：进入 else 
+```
+currentNode = nil
+
+tmp = 4
+
+nodeStack =           1      
+                    /   \       2 
+            [      2     3 ,   / \       ]
+                  / \   /     4   5
+                 4   5 6 
+
+res = [4]
+
+currentNode = nil
+```
+##### 5：进入 else
+```
+currentNode = nil
+
+tmp =  2     
+      / \   
+     4   5
+
+nodeStack =           1
+                    /   \
+            [      2     3    ]
+                  / \   /
+                 4   5 6 
+                 
+res = [4, 2]
+
+currentNode = 5
+```
+##### 6：进入 if 
+```
+currentNode = 5
+
+nodeStack =           1
+                    /   \
+            [      2     3 , 5   ]
+                  / \   /
+                 4   5 6 
+                 
+res = [4, 2]
+
+currentNode = nil
+```
+##### 7：进入 else 
+```
+currentNode = nil
+
+tmp = 5
+
+nodeStack =           1
+                    /   \
+            [      2     3    ]
+                  / \   /
+                 4   5 6 
+                 
+res = [4, 2, 5]
+
+currentNode = nil
+```
+##### 8：进入 else 
+```
+currentNode = nil
+
+tmp =     1
+        /   \
+       2     3
+      / \   /
+     4   5 6
+
+nodeStack = []
+                 
+res = [4, 2, 5, 1]
+
+currentNode =    3
+               /
+              6
+```
+##### 9：进入 if  
+```
+currentNode =    3
+               /
+              6
+
+nodeStack =      3
+             [  /   ]
+               6
+                 
+res = [4, 2, 5, 1]
+
+currentNode = 6
+```
+##### 10：进入 if 
+```
+currentNode = 6
+
+nodeStack =      3
+             [  /  , 6  ]
+               6
+                 
+res = [4, 2, 5, 1]
+
+currentNode = nil
+```
+##### 11：进入 else  
+```
+currentNode = nil
+
+tmp = 6
+
+nodeStack =      3
+             [  /   ]
+               6
+                 
+res = [4, 2, 5, 1, 6]
+
+currentNode = nil
+```
+##### 12：进入 else  
+```
+currentNode = nil
+
+nodeStack =  3
+            /   
+           6
+
+nodeStack = []
+                 
+res = [4, 2, 5, 1, 6, 3]
+
+currentNode = nil
+```
+到这里就结束了，这里详细列出了整个过程，希望大家了解这种迭代法。
+
+
 ##### 方法三 ：牛顿迭代法（牛顿-拉弗森方法）
 ```swift
 func mySqrt(_ x: Int) -> Int {
