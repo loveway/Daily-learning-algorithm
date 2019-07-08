@@ -15,31 +15,53 @@ Input: [1,null,2,3]
 Output: [1,3,2]
 ```
 **Follow up:** Recursive solution is trivial, could you do it iteratively?
-# 69. x 的平方根
-实现 `int sqrt(int x)` 函数。
 
-计算并返回 x 的平方根，其中 x 是非负整数。
+# 94. 二叉树的中序遍历
 
-由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
+给定一个二叉树，返回它的 *中序* 遍历。
 
-**示例 1:**
+**示例:**
 ```
-输入: 4
-输出: 2
+输入: [1,null,2,3]
+   1
+    \
+     2
+    /
+   3
+
+输出: [1,3,2]
 ```
-**示例 2:**
-```
-输入: 8
-输出: 2
-说明: 8 的平方根是 2.82842..., 由于返回类型是整数，小数部分将被舍去。
-```
+**进阶:** 递归算法很简单，你可以通过迭代算法完成吗？
+
 ## 解法:
-##### 方法一：内置函数法
+##### 方法一：[递归](https://zh.wikipedia.org/wiki/%E9%80%92%E5%BD%92)
 ```swift
-func mySqrt(_ x: Int) -> Int {
-    return Int(sqrt(Double(x)))
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public var val: Int
+ *     public var left: TreeNode?
+ *     public var right: TreeNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.left = nil
+ *         self.right = nil
+ *     }
+ * }
+ */
+
+class Solution {
+    var res = [Int]()
+    func inorderTraversal(_ root: TreeNode?) -> [Int] {
+        guard root != nil else { return [] }
+        inorderTraversal(root!.left)
+        res.append(root!.val)
+        inorderTraversal(root!.right)
+        return res
+    }
 }
 ```
+如果不清楚递归的定义或者对递归还有疑问的童鞋可以看看 [彻底理解递归，从递归的本质说起！](https://blog.csdn.net/allenchenhh133/article/details/80291252) 这篇文章。
 ##### 方法二 ：二分法
 ```swift
 func mySqrt(_ x: Int) -> Int {
