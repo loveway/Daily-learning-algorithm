@@ -298,7 +298,7 @@ currentNode = nil
 到这里就结束了，这里详细列出了整个过程，希望大家了解这种迭代法。
 
 
-#### 方法三 ：莫里斯遍历 (Morris Traversal)（LeetCode 上官方的一中解法）
+#### 方法三 ：莫里斯遍历 (Morris Traversal)（LeetCode 上官方的一种解法）
 ```swift
 /**
  * Definition for a binary tree node.
@@ -338,7 +338,7 @@ class Solution {
     }
 }
 ```
-> 关于莫里斯方法可以看看 [莫里斯方法解析](https://stackoverflow.com/questions/5502916/explain-morris-inorder-tree-traversal-without-using-stacks-or-recursion)，主要方法就是
+> 关于莫里斯方法主要方法就是
 >
 > 1: 将当前节点 current 初始化为根节点
 >
@@ -358,7 +358,10 @@ class Solution {
     b. 进入左子树，亦即，current = current.left
 
 ```
-[线索二叉树](https://baike.baidu.com/item/%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/10810037)
+> [线索二叉树](https://baike.baidu.com/item/%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/10810037)不清楚的童鞋也可以去了解下
+
+参考 [莫里斯方法解析](https://stackoverflow.com/questions/5502916/explain-morris-inorder-tree-traversal-without-using-stacks-or-recursion) 这篇文章，大致流程如下
+
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
 |:-------:|:-------:|:-------:|:-------:|:-------:|
