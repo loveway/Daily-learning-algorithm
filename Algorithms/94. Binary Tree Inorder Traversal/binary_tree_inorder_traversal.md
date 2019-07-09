@@ -361,6 +361,25 @@ class Solution {
 > [线索二叉树](https://baike.baidu.com/item/%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/10810037)不清楚的童鞋也可以去了解下
 
 参考 [莫里斯方法解析](https://stackoverflow.com/questions/5502916/explain-morris-inorder-tree-traversal-without-using-stacks-or-recursion) 这篇文章，大致流程如下
+```
+     X
+   /   \
+  Y     Z
+ / \   / \
+A   B C   D
+```
+首先 X 是根节点，所以将 current 初始化为 X 。X 有一个左子树，所以 X 是 X 左子树的最右子树，即 B 的右子树是 X ，此刻根节点变成了 Y ，所以将 current 指向 Y，现在的树结构如下
+```
+    Y
+   / \
+  A   B
+       \
+        X
+       / \
+     (Y)  Z
+         / \
+        C   D
+```
 
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
