@@ -4,6 +4,7 @@ Write a function to delete a node (except the tail) in a singly linked list, giv
 
 Given linked list -- head = [4,5,1,9], which looks like following:
 
+![237_example](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/237.%20Delete%20Node%20in%20a%20Linked%20List/image/237_example.png?raw=true)
 
 **Example 1:**
 ```
@@ -28,6 +29,8 @@ Explanation: You are given the third node with value 1, the linked list should b
 请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点，你将只被给定要求被删除的节点。
 
 现有一个链表 -- head = [4,5,1,9]，它可以表示为:
+
+![237_example](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/237.%20Delete%20Node%20in%20a%20Linked%20List/image/237_example.png?raw=true)
 
 **示例 1:**
 ```
