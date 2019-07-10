@@ -47,55 +47,63 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next 
 
 
 ## 解法:
-##### 方法一：内置函数法
+##### 方法一：数组存储法
 ```swift
-func mySqrt(_ x: Int) -> Int {
-    return Int(sqrt(Double(x)))
-}
-```
-##### 方法二 ：二分法
-```swift
-func mySqrt(_ x: Int) -> Int {
-    if x == 0 {
-        return 0
-    }
-    var left = 0
-    var right = x / 2 + 1//开平方以后的值肯定小于 x / 2 + 1
-    var mid = 0
-    var res = 0
-
-    while left <= right {
-        mid = (left + right) / 2
-        res = mid * mid
-        if res == x {
-            return mid
-        } else if res > x {
-            right = mid - 1
-        } else {
-            left = mid + 1
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public var val: Int
+ *     public var next: ListNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.next = nil
+ *     }
+ * }
+ */
+class Solution {
+    func middleNode(_ head: ListNode?) -> ListNode? {
+        if head == nil || head?.next == nil {
+            return head
         }
+        var res = [ListNode]()
+        var tmp = head
+        while tmp?.next != nil {
+            res.append(tmp!)
+            tmp = tmp!.next
+        }
+       return res[res.count / 2]
     }
-    return right
 }
 ```
-##### 方法三 ：牛顿迭代法（牛顿-拉弗森方法）
+##### 方法二 ：快慢指针法
 ```swift
-func mySqrt(_ x: Int) -> Int {
-    if x == 0 {
-        return 0
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public var val: Int
+ *     public var next: ListNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.next = nil
+ *     }
+ * }
+ */
+class Solution {
+    func middleNode(_ head: ListNode?) -> ListNode? {
+        var fast = head
+        var slow = head
+        while fast != nil && fast?.next != nil {
+            fast = fast?.next?.next
+            slow = slow?.next
+        }
+        return slow
     }
-    var res = x
-    while res * res > x {
-       res = (res + x / res) / 2
-    }
-    return res
 }
 ```
-> 对于牛顿迭代法先前也是不了解，看到别人的解法中有这么一个觉得思路还是蛮好的，想了解的同学可以看看知乎上[如何通俗易懂地讲解牛顿迭代法求开方？数值分析？](https://www.zhihu.com/question/20690553/answer/146104283)这个回答，讲的还是很详细的。
+这道题利用链单链表的特性还是蛮简单的。
 
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
 |:-------:|:-------:|:-------:|:-------:|:-------:|
-| 方法一 |   O(1)  | O(1) |  16  | 20.2 |
-| 方法二 | O(logn) | O(1) |  16  | 20.4 |
-| 方法三 |    -    | O(1) |  20  | 20.7 |
+| 方法一 |   O(n)  | O(n) |  4  | 20.5 |
+| 方法二 |   O(n)  | O(1) |  8  | 20.9 |
