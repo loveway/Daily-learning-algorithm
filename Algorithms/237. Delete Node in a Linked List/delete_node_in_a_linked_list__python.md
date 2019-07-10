@@ -4,6 +4,7 @@ Write a function to delete a node (except the tail) in a singly linked list, giv
 
 Given linked list -- head = [4,5,1,9], which looks like following:
 
+![237_example](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/237.%20Delete%20Node%20in%20a%20Linked%20List/image/237_example.png?raw=true)
 
 **Example 1:**
 ```
@@ -29,6 +30,8 @@ Explanation: You are given the third node with value 1, the linked list should b
 
 现有一个链表 -- head = [4,5,1,9]，它可以表示为:
 
+![237_example](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/237.%20Delete%20Node%20in%20a%20Linked%20List/image/237_example.png?raw=true)
+
 **示例 1:**
 ```
 输入: head = [4,5,1,9], node = 5
@@ -43,21 +46,24 @@ Explanation: You are given the third node with value 1, the linked list should b
 ```
 ## 解法:
 ##### 方法一：操作指针
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func deleteNode(node *ListNode) {
-	node.Val, node.Next = node.Next.Val, node.Next.Next
-}
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def deleteNode(self, node):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        node.val, node.next = node.next.val, node.next.next
 ```
 
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
 |:-------:|:-------:|:-------:|:-------:|:-------:|
-| 方法一 |   O(1)  | O(1) |  0  | 2.9 |
+| 方法一 |   O(1)  | O(1) |  92  | 13.4 |
 
