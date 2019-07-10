@@ -100,13 +100,13 @@ class Solution {
     }
 }
 ```
-这种方法是先让一个指针走 n 步，然后慢指针和快指针一起走，直到快指针走到最后，因为快慢指针之间的长度是 n ，所以慢指针所在的位置的下一个就是要删除的。使用 [LeetCode 上的一个解法如下](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/solution/dong-hua-tu-jie-leetcode-di-19-hao-wen-ti-shan-chu/) 图详细说明
+这种方法是先让一个指针走 n 步，然后慢指针和快指针一起走，直到快指针走到最后，因为快慢指针之间的长度是 n ，所以慢指针所在的位置的下一个就是要删除的。使用 [LeetCode 上的一个解法](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/solution/dong-hua-tu-jie-leetcode-di-19-hao-wen-ti-shan-chu/) 如下图详细说明
 
-
+![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/19.%20Remove%20Nth%20Node%20From%20End%20of%20List/image/19_anwser.gif?raw=true)
 
 
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
 |:-------:|:-------:|:-------:|:-------:|:-------:|
-| 方法一 |   O(1)  | O(1) |  0  | 2.9 |
-
+| 方法一 |   O(n)  | O(1) |  20  | 20.8 |
+ 方法一 |   O(n)  | O(1) |  8  | 20.3 |
