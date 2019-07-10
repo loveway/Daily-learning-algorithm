@@ -1,5 +1,5 @@
 # Daily-learning-algorithm
-根据 [LeetCode](https://leetcode.com) 上面的题目每日学习算法，用 Swift 完成
+根据 [LeetCode](https://leetcode.com) 上面的题目每日学习算法
 
 |序号| 题目名称 | 题目名称CN | 难易度 | 题解 | 完成时间 |
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
