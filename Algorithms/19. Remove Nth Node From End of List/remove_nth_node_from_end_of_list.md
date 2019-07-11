@@ -16,7 +16,7 @@ After removing the second node from the end, the linked list becomes 1->2->3->5.
 * Could you do this in one pass?
 
 # 19. 删除链表的倒数第N个节点
-给定一个链表，删除链表的倒数第 *n* 个节点，并且返回链表的头结点。
+给定一个链表，删除链表的倒数第 *n* 个节点，并且返回链表的头节点。
 
 **示例:**
 ```
