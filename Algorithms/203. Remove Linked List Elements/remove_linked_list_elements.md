@@ -1,28 +1,28 @@
 
-# 92. Reverse Linked List II
-Reverse a linked list from position *m* to *n*. Do it in one-pass.
+# 203. Remove Linked List Elements
+Remove all elements from a linked list of integers that have value  ***val*** .
 
 **note:** 1 ≤ m ≤ n ≤ length of list.
 
 **Example:**
 ```
-Input: 1->2->3->4->5->NULL, m = 2, n = 4
-Output: 1->4->3->2->5->NULL
+Input:  1->2->6->3->4->5->6, val = 6
+Output: 1->2->3->4->5
 ```
 
-# 92. 反转链表 II
-反转从位置 *m* 到 *n* 的链表。请使用一趟扫描完成反转
+# 203. 移除链表元素
+删除链表中等于给定值 ***val*** 的所有节点。
 
 **说明：** 1 ≤ m ≤ n ≤ 链表长度。
 
 **示例：**
 ```
-输入: 1->2->3->4->5->NULL, m = 2, n = 4
-输出: 1->4->3->2->5->NULL
+输入: 1->2->6->3->4->5->6, val = 6
+输出: 1->2->3->4->5
 ```
 
 ## 解法:
-##### 方法一：
+##### 方法一：迭代
 ```swift
 /**
  * Definition for singly-linked list.
@@ -36,33 +36,83 @@ Output: 1->4->3->2->5->NULL
  * }
  */
 class Solution {
-    func reverseBetween(_ head: ListNode?, _ m: Int, _ n: Int) -> ListNode? {
-        if head == nil || m > n {
-            return nil
+    func removeElements(_ head: ListNode?, _ val: Int) -> ListNode? {
+        let pre = ListNode(0)
+        pre.next = head;
+        var current: ListNode? = pre
+        while current?.next != nil {
+            if current?.next?.val == val {
+                current?.next = current?.next?.next
+            } else {
+                current = current?.next
+            }
+            if current?.val == val {
+                current = current?.next
+            }
         }
-        let res = ListNode(0)
-        res.next = head
-        var pre: ListNode? = res
-        for _ in 0..<(m - 1) {
-            pre = pre?.next
-        }
-        var current = pre?.next
-        var mid: ListNode?
-        for _ in 0...(n-m) {
-            let tmp = current?.next
-            current?.next = mid
-            mid = current
-            current = tmp
-        }
-        pre?.next?.next = current
-        pre?.next = mid
-        return res.next
+        return pre.next
     }
 }
 ```
-和直接反转链表相比主要就是要找到反转位置的前一个节点。
+##### 方法二：新链表
+```swift
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public var val: Int
+ *     public var next: ListNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.next = nil
+ *     }
+ * }
+ */
+class Solution {
+    func removeElements(_ head: ListNode?, _ val: Int) -> ListNode? {
+        var pre: ListNode? = ListNode(0)
+        var tmp = pre
+        var current = head
+        while current != nil {
+            if current?.val == val {
+                current = current?.next
+            } else {
+                tmp?.next = current
+                tmp = tmp?.next
+                current = current?.next
+            }
+        }
+        tmp?.next = nil//这里需要将最后一个指为 nil
+        return pre?.next
+    }
+}
+```
+##### 方法三：递归
+```swift
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public var val: Int
+ *     public var next: ListNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.next = nil
+ *     }
+ * }
+ */
+class Solution {
+    func removeElements(_ head: ListNode?, _ val: Int) -> ListNode? {
+        if head == nil {
+            return head
+        }
+        head?.next = removeElements(head?.next, val)
+        return head?.val == val ? head?.next : head;
+    }
+}
+```
+
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
 |:-------:|:-------:|:-------:|:-------:|:-------:|
-| 方法一 |   O(n)  | O(1) |  20  | 20.43|
-
+| 方法一 |   O(n)  | O(n) |  104  | 22.9 |
+| 方法二 |   O(n)  | O(n) |  100  | 22.3|
+| 方法三 |   O(n)  | O(1) |  104   24.4 |
