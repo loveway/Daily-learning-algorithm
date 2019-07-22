@@ -115,6 +115,13 @@ func hasCycle(head *ListNode) bool {
 }
 
 ```
+这种解法的思路有两点：
+* 如果不含有环，跑得快的那个指针最终会遇到 null，说明链表不含环。
+* 如果含有环，快指针会超慢指针一圈，和慢指针相遇，说明链表含有环。
+
+这里 [动画：使用快慢指针求解「环形链表」so easy！](https://leetcode-cn.com/problems/linked-list-cycle/solution/dong-hua-shi-yong-kuai-man-zhi-zhen-qiu-jie-huan-x/) 这个解答有个gif可以详细说明，如下
+
+![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/141.%20Linked%20List%20Cycle/image/141LinkedListCycle.gif?raw=true)
 
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
