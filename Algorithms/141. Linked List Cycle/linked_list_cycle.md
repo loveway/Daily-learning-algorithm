@@ -30,6 +30,7 @@ Explanation: There is no cycle in the linked list.
 ![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/141.%20Linked%20List%20Cycle/image/circularlinkedlist_test3.png?raw=true)
 
 **Follow up:** 
+
 Can you solve it using *O(1)* (i.e. constant) memory?
 
 # 92. 反转链表 II
