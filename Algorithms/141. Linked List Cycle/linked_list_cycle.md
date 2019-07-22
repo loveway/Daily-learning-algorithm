@@ -9,11 +9,28 @@ To represent a cycle in the given linked list, we use an integer pos which repre
 Input: head = [3,2,0,-4], pos = 1
 Output: true
 Explanation: There is a cycle in the linked list, where tail connects to the second node.
-
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/linked-list-cycle
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 ```
+![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/141.%20Linked%20List%20Cycle/image/circularlinkedlist.png?raw=true)
+
+**Example 2:**
+```
+Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, where tail connects to the first node.
+```
+![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/141.%20Linked%20List%20Cycle/image/circularlinkedlist_test2.png?raw=true)
+
+
+**Example 3:**
+```
+Input: head = [1], pos = -1
+Output: false
+Explanation: There is no cycle in the linked list.
+```
+![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/141.%20Linked%20List%20Cycle/image/circularlinkedlist_test3.png?raw=true)
+
+**Follow up:** 
+Can you solve it using *O(1)* (i.e. constant) memory?
 
 # 92. 反转链表 II
 反转从位置 *m* 到 *n* 的链表。请使用一趟扫描完成反转
