@@ -1,120 +1,62 @@
 
-# 141. Linked List Cycle
-Given a linked list, determine if it has a cycle in it.
+# 2. Add Two Numbers
+You are given two **non-empty** linked lists representing two non-negative integers. The digits are stored in **reverse order** and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 
-To represent a cycle in the given linked list, we use an integer `pos` which represents the position (0-indexed) in the linked list where tail connects to. If `pos` is `-1`, then there is no cycle in the linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
-**Example 1:**
+**Example:**
 ```
-Input: head = [3,2,0,-4], pos = 1
-Output: true
-Explanation: There is a cycle in the linked list, where tail connects to the second node.
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+Explanation: 342 + 465 = 807.
 ```
-![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/141.%20Linked%20List%20Cycle/image/circularlinkedlist.png?raw=true)
 
-**Example 2:**
+# 2. 两数相加
+给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
+
+如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
+
+您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+
+
+**示例：**
 ```
-Input: head = [1,2], pos = 0
-Output: true
-Explanation: There is a cycle in the linked list, where tail connects to the first node.
+输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
+输出：7 -> 0 -> 8
+原因：342 + 465 = 807
 ```
-![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/141.%20Linked%20List%20Cycle/image/circularlinkedlist_test2.png?raw=true)
-
-
-**Example 3:**
-```
-Input: head = [1], pos = -1
-Output: false
-Explanation: There is no cycle in the linked list.
-```
-![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/141.%20Linked%20List%20Cycle/image/circularlinkedlist_test3.png?raw=true)
-
-**Follow up:** 
-
-Can you solve it using *O(1)* (i.e. constant) memory?
-
-# 141. 环形链表
-给定一个链表，判断链表中是否有环。
-
-为了表示给定链表中的环，我们使用整数 `pos` 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 `pos` 是 `-1`，则在该链表中没有环。
-
-
-**说明：** 1 ≤ m ≤ n ≤ 链表长度。
-
-**示例 1：**
-```
-输入：head = [3,2,0,-4], pos = 1
-输出：true
-解释：链表中有一个环，其尾部连接到第二个节点。
-```
-![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/141.%20Linked%20List%20Cycle/image/circularlinkedlist.png?raw=true)
-
-**示例 2：**
-```
-输入：head = [1,2], pos = 0
-输出：true
-解释：链表中有一个环，其尾部连接到第一个节点。
-```
-![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/141.%20Linked%20List%20Cycle/image/circularlinkedlist_test2.png?raw=true)
-
-**示例 3：**
-```
-输入：head = [1], pos = -1
-输出：false
-解释：链表中没有环。
-```
-![](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/141.%20Linked%20List%20Cycle/image/circularlinkedlist_test3.png?raw=true)
 
 ## 解法:
-##### 方法一：哈希表
-```go
+##### 方法一：
+```swift
 /**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func hasCycle(head *ListNode) bool {
-	hash := make(map[*ListNode]int)
-	for head != nil {
-		if _, ok := hash[head]; ok {
-			return true
-		}
-		hash[head] = head.Val
-		head = head.Next
-	}
-	return false
+class Solution {
+    func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        var ll1 = l1, ll2 = l2;
+        var res: ListNode? = ListNode(0)
+        let pre = res
+        var tmp = 0
+        while ll1 != nil || ll2 != nil  {
+            let x: Int = ll1 == nil ? 0 : ll1!.val
+            let y: Int = ll2 == nil ? 0 : ll2!.val
+            var sum = x + y + tmp
+            tmp = sum / 10
+            sum %= 10
+            let mid = ListNode(sum)
+            res?.next = mid
+            res = mid
+            ll1 = ll1?.next
+            ll2 = ll2?.next
+        }
+        if tmp == 1 {
+            let last = ListNode(1)
+            res?.next = last
+        }
+        return pre?.next
+    }
 }
 ```
-这个方法就是遍历链表，然后比较哈希表里是否已经存在党当前便利的值，如果有则说明有环。
 
-##### 方法二：双指针
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func hasCycle(head *ListNode) bool {
-
-	if head == nil {
-		return false
-	}
-	fast := head.Next
-	for fast != nil && head != nil && fast.Next != nil {
-		if fast == head {
-			return true
-		}
-		fast = fast.Next.Next
-		head = head.Next
-	}
-	return false
-}
-
-```
 
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
