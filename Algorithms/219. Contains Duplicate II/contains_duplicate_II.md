@@ -1,34 +1,44 @@
 
-# 202. Happy Number
-Write an algorithm to determine if a number is "happy".
+# 219. Contains Duplicate II
+Given an array of integers and an integer *k*, find out whether there are two distinct indices *i* and *j* in the array such that **nums[i] = nums[j]** and the **absolute** difference between *i* and *j* is at most *k*.
 
-A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.
-
-**Example:**
+**Example 1:**
 ```
-Input: 19
+Input: nums = [1,2,3,1], k = 3
 Output: true
-Explanation: 
-12 + 92 = 82
-82 + 22 = 68
-62 + 82 = 100
-12 + 02 + 02 = 1
 ```
 
-# 202. 快乐数
-编写一个算法来判断一个数是不是“快乐数”。
-
-一个“快乐数”定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。
-
-**示例：**
+**Example 2:**
 ```
-输入: 19
+Input: nums = [1,0,1,1], k = 1
+Output: true
+```
+
+**Example 3:**
+```
+Input: nums = [1,2,3,1,2,3], k = 2
+Output: false
+```
+
+# 219. 存在重复元素 II
+给定一个整数数组和一个整数 k，判断数组中是否存在两个不同的索引 *i*  和 *j* ，使得 **nums [i] = nums [j]**，并且 *i* 和 *j* 的差的绝对值最大为 *k*。
+
+**示例 1：**
+```
+输入: nums = [1,2,3,1], k = 3
 输出: true
-解释: 
-12 + 92 = 82
-82 + 22 = 68
-62 + 82 = 100
-12 + 02 + 02 = 1
+```
+
+**示例 2：**
+```
+输入: nums = [1,0,1,1], k = 1
+输出: true
+```
+
+**示例 3：**
+```
+输入: nums = [1,2,3,1,2,3], k = 2
+输出: false
 ```
 
 ## 解法:
