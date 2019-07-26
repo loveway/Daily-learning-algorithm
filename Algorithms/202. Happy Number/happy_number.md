@@ -32,51 +32,49 @@ Explanation:
 ```
 
 ## 解法:
-##### 方法一：
+##### 方法一：集合法
 ```swift
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public var val: Int
- *     public var next: ListNode?
- *     public init(_ val: Int) {
- *         self.val = val
- *         self.next = nil
- *     }
- * }
- */
 class Solution {
-    func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-        var ll1 = l1, ll2 = l2;
-        var res: ListNode? = ListNode(0)
-        let pre = res
-        var tmp = 0
-        while ll1 != nil || ll2 != nil  {
-            let x: Int = ll1 == nil ? 0 : ll1!.val
-            let y: Int = ll2 == nil ? 0 : ll2!.val
-            var sum = x + y + tmp
-            tmp = sum / 10
-            sum %= 10
-            let mid = ListNode(sum)
-            res?.next = mid
-            res = mid
-            ll1 = ll1?.next
-            ll2 = ll2?.next
+    func isHappy(_ n: Int) -> Bool {
+        var res = n
+        var tmpSet = Set<Int>()
+        while res != 1 {
+            if tmpSet.contains(res) {
+                return false
+            }
+            var tmp = 0
+            tmpSet.insert(res)
+            while res != 0 {
+                tmp += (res % 10) * (res % 10)
+                res /= 10
+            }
+            res = tmp;
         }
-        if tmp == 1 {
-            let last = ListNode(1)
-            res?.next = last
-        }
-        return pre?.next
+        return true
     }
 }
 ```
-由题意可知，我们需要将链表中的每一位数相加然后向后进一位即可，即代码中的 `tmp` 这个变量，表示是不是需要向后进位，还需要注意的是 `sum = x + y + tmp` 来判断需不需要 `+1`，最后如果循环完毕 tmp 仍然为 1 ，说明需要增加一个新的节点来存储这个进位如下面这种情况
+##### 方法二：递归法
+```swift
+class Solution {
+    func isHappy(_ n: Int) -> Bool {
+        if n == 1 {
+            return true
+        }
+        if n == 4 {
+            return false
+        }
+        var res = 0
+        var tmp = n
+        while tmp != 0 {
+            res += (tmp % 10) * (tmp % 10)
+            tmp /= 10
+        }
+        return isHappy(res)
+    }
+}
 ```
-l1: [1, 9]
-l2: [2, 1]
-putput: [3, 0, 1]
-```
+这题的主要思路就是，所有不快乐数的数位平方和计算，最後都会进入 4 → 16 → 37 → 58 → 89 → 145 → 42 → 20 → 4 的循环中。只要知道这个规律，相信大家都会解出来！
 
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
