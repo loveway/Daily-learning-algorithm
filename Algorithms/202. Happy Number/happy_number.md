@@ -1,14 +1,18 @@
 
-# 2. Add Two Numbers
-You are given two **non-empty** linked lists representing two non-negative integers. The digits are stored in **reverse order** and each of their nodes contain **a single digit**. Add the two numbers and return it as a linked list.
+# 202. Happy Number
+Write an algorithm to determine if a number is "happy".
 
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.
 
 **Example:**
 ```
-Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-Output: 7 -> 0 -> 8
-Explanation: 342 + 465 = 807.
+Input: 19
+Output: true
+Explanation: 
+12 + 92 = 82
+82 + 22 = 68
+62 + 82 = 100
+12 + 02 + 02 = 1
 ```
 
 # 2. 两数相加
