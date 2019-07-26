@@ -42,52 +42,27 @@ Output: false
 ```
 
 ## 解法:
-##### 方法一：集合法
+##### 方法一：哈希表
 ```swift
 class Solution {
-    func isHappy(_ n: Int) -> Bool {
-        var res = n
-        var tmpSet = Set<Int>()
-        while res != 1 {
-            if tmpSet.contains(res) {
-                return false
+    func containsNearbyDuplicate(_ nums: [Int], _ k: Int) -> Bool {
+        var dic: Dictionary<Int, Int> = [:]
+        for (i, num) in nums.enumerated() {
+            if (dic[num] != nil) {
+                if abs(dic[num]! - i) <= k {
+                    return true
+                }
             }
-            var tmp = 0
-            tmpSet.insert(res)
-            while res != 0 {
-                tmp += (res % 10) * (res % 10)
-                res /= 10
-            }
-            res = tmp;
+            dic[num] = i
         }
-        return true
+        return false
     }
 }
 ```
-##### 方法二：递归法
-```swift
-class Solution {
-    func isHappy(_ n: Int) -> Bool {
-        if n == 1 {
-            return true
-        }
-        if n == 4 {
-            return false
-        }
-        var res = 0
-        var tmp = n
-        while tmp != 0 {
-            res += (tmp % 10) * (tmp % 10)
-            tmp /= 10
-        }
-        return isHappy(res)
-    }
-}
-```
-这题的主要思路就是，所有不快乐数的数位平方和计算，最後都会进入 4 → 16 → 37 → 58 → 89 → 145 → 42 → 20 → 4 的循环中。只要知道这个规律，相信大家都会解出来！
+这题需要注意的就是题目要看清***i 和 j 的差的绝对值最大为 k***，然后用 map 很简单。
 
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
 |:-------:|:-------:|:-------:|:-------:|:-------:|
-| 方法一 |   O(n)  | O(n |  76  | 20.7 |
+| 方法一 |   O(n)  | O(n) |  204  | 23.5 |
 
