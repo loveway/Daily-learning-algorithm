@@ -48,49 +48,50 @@ Output: true
 ##### 方法一：集合法
 ```swift
 class Solution {
-    func isHappy(_ n: Int) -> Bool {
-        var res = n
-        var tmpSet = Set<Int>()
-        while res != 1 {
-            if tmpSet.contains(res) {
-                return false
+    func containsDuplicate(_ nums: [Int]) -> Bool {
+        var saveSet = Set<Int>()
+        for n in nums {
+            if saveSet.contains(n) {
+                return true
             }
-            var tmp = 0
-            tmpSet.insert(res)
-            while res != 0 {
-                tmp += (res % 10) * (res % 10)
-                res /= 10
-            }
-            res = tmp;
+            saveSet.insert(n)
         }
-        return true
+        return false
     }
 }
 ```
-##### 方法二：递归法
+##### 方法二：集合法简便写法
 ```swift
 class Solution {
-    func isHappy(_ n: Int) -> Bool {
-        if n == 1 {
-            return true
-        }
-        if n == 4 {
-            return false
-        }
-        var res = 0
-        var tmp = n
-        while tmp != 0 {
-            res += (tmp % 10) * (tmp % 10)
-            tmp /= 10
-        }
-        return isHappy(res)
+    func containsDuplicate(_ nums: [Int]) -> Bool {
+        return Set(nums).count == nums.count ? false : true
     }
 }
 ```
-这题的主要思路就是，所有不快乐数的数位平方和计算，最後都会进入 4 → 16 → 37 → 58 → 89 → 145 → 42 → 20 → 4 的循环中。只要知道这个规律，相信大家都会解出来！
+##### 方法三：排序法
+```swift
+class Solution {
+    func containsDuplicate(_ nums: [Int]) -> Bool {
+        if nums.count <= 1 {
+            return false
+        }
+        var resNum = nums
+        resNum.sort()
+        for i in 0..<resNum.count - 1 {
+            if resNum[i] == resNum[i+1] {
+                return true
+            }
+        }
+        return false
+    }
+}
+```
+其中第三种方法就是先排序，然后看相邻两个是不是有相同的，有相同的则说明是。
 
 ## 结果:
 | 方法 | 时间复杂度（T(n)） | 空间复杂度（S(n)） | 执行用时(ms) | 内存消耗(MB) |
 |:-------:|:-------:|:-------:|:-------:|:-------:|
-| 方法一 |   O(n)  | O(n |  76  | 20.7 |
+| 方法一 |   O(n)  | O(n) |  288  | 21.8 |
+| 方法二 |   O(1)  | O(n) |  328  | 22.1 |
+| 方法三 |   O(n)  | O(1) |  252  | 21.6 |
 
