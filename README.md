@@ -24,4 +24,4 @@
 # 其他一些基本的算法
 |序号| 题目名称 | 类型 | 题解 | 完成时间 |
 |:-------:|:-------:|:-------:|:-------:|:-------:|
-| 1 |两数之和 | Array | [Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/1.Two%20Sum/two_sum.md) | 2019.10.29 | 
+| 1 |冒泡排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/bubble_sort.py) | 2019.10.29 | 
