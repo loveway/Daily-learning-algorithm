@@ -20,3 +20,8 @@
 | 202 | [ Happy Number ](https://leetcode.com/problems/happy-number) |  快乐数 | ★ | Hash Table | [Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/202.%20Happy%20Number/happy_number.md)、[C](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/202.%20Happy%20Number/happy_number_C.md) | 2019.7.26|
 | 217 | [ Contains Duplicate ](https://leetcode.com/problems/contains-duplicate) |  存在重复元素 | ★ | Hash Table | [Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/217.%20Contains%20Duplicate/contains_duplicate.md) | 2019.7.26|
 | 219 | [ Contains Duplicate II ](https://leetcode.com/problems/contains-duplicate-ii) |  存在重复元素 II | ★ | Hash Table | [Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/219.%20Contains%20Duplicate%20II/contains_duplicate_II.md) | 2019.7.26|
+
+# 其他一些基本的算法
+|序号| 题目名称 | 类型 | 题解 | 完成时间 |
+|:-------:|:-------:|:-------:|:-------:|:-------:|
+| 1 |两数之和 | Array | [Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/1.Two%20Sum/two_sum.md) | 2019.10.29 | 
