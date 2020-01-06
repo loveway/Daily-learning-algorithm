@@ -24,7 +24,7 @@
 # 其他一些基本的算法
 
 |序号| 题目名称 | 类型 | 题解 | 
-|:-------:|:-------:|:-------:|:-------:|:-------:|
+|:-------:|:-------:|:-------:|:-------:|
 | 1 |冒泡排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/bubble_sort.py) | 
 | 2 |归并排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/merge_sort.py) |  
 | 3 |选择排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/select_sort.py) | 
