@@ -2,7 +2,7 @@
 根据 [LeetCode](https://leetcode.com) 上面的题目每日学习算法
 
 |序号| 题目名称 | 题目名称CN | 难易度 | 类型 | 题解 | 
-|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 | 1 | [Two Sum](https://leetcode.com/problems/two-sum) | 两数之和 | ★ | Array | [Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/1.Two%20Sum/two_sum.md) |  
 | 66 | [Plus One](https://leetcode.com/problems/plus-one) | 加一 | ★ | Array | [Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/66.Plus%20One/plus_one.md) |
 | 35 | [Search Insert Position](https://leetcode.com/problems/search-insert-position) | 搜索插入位置 | ★ | Array | [Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/35.Search%20Insert%20Position/search_insert_position.md) | 
@@ -22,6 +22,7 @@
 | 219 | [ Contains Duplicate II ](https://leetcode.com/problems/contains-duplicate-ii) |  存在重复元素 II | ★ | Hash Table | [Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms/219.%20Contains%20Duplicate%20II/contains_duplicate_II.md) | 
 
 # 其他一些基本的算法
+
 |序号| 题目名称 | 类型 | 题解 | 
 |:-------:|:-------:|:-------:|:-------:|:-------:|
 | 1 |冒泡排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/bubble_sort.py) | 
