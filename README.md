@@ -28,4 +28,4 @@
 | 1 |冒泡排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/bubble_sort.py) | 
 | 2 |归并排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/merge_sort.py) |  
 | 3 |选择排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/select_sort.py)、[Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/select_sort_swift.md) | 
-
+| 4 |快速排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/quick_sort.py)、[Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/quick_sort_swift.md) | 
