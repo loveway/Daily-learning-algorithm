@@ -7,7 +7,7 @@ public class SelectionSort {
         selectionSort(array);
         System.out.println(Arrays.toString(array));// {1, 2, 3, 3, 4, 5, 7, 9}
     }
-
+    // 选择排序，会改变相同元素的位置，是一种不稳定排序，时间复杂度 O(n^2)，空间复杂度 O(1)
     public static void selectionSort(int[] array) {
 
         for (int i = 0; i < array.length - 1; i++) {
