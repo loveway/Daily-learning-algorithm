@@ -29,7 +29,7 @@
 | 2 |归并排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/merge_sort.py) |  
 | 3 |选择排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/select_sort.py)、[Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/select_sort_swift.md) 、[Java](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/SelectionSort.java)| [漫画：什么是选择排序？](https://mp.weixin.qq.com/s/dGfh2t7xhg0wMM_DcYP1Cw) |
 | 4 |快速排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/quick_sort.py)、[Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/quick_sort_swift.md)、[Java](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/QuickSort.java) | [漫画：什么是快速排序？（完整版）](https://mp.weixin.qq.com/s/PQLC7qFjb74kt6PdExP8mw) |
-| 5 |插入排序 | Array | [Java](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/InsertSort.java) | 漫画：什么是插入排序？](https://mp.weixin.qq.com/s/McqFXkXucSZldjU46t5cdw) |
+| 5 |插入排序 | Array | [Java](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/InsertSort.java) | [漫画：什么是插入排序？](https://mp.weixin.qq.com/s/McqFXkXucSZldjU46t5cdw) |
 
 # 其他一些基本的算法
 | 1 | 反转字符串 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/reverse_sort.py) | 
