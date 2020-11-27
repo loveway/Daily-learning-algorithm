@@ -24,7 +24,7 @@
 # 其他一些基本的算法
 
 |序号| 题目名称 | 类型 | 题解 | 原理解析 |
-|:-------:|:-------:|:-------:|:-------:|:-------:|
+|:-------:|:-------:|:-------:|:-------:|:-------|
 | 1 |冒泡排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/bubble_sort.py)、[Java](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/BubbleSort.java) | 
 | 2 |归并排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/merge_sort.py) |  
 | 3 |选择排序 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/select_sort.py)、[Swift](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/select_sort_swift.md) 、[Java](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/SelectionSort.java)| [漫画：什么是选择排序？](https://mp.weixin.qq.com/s/dGfh2t7xhg0wMM_DcYP1Cw) |
