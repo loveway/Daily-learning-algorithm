@@ -32,5 +32,7 @@
 | 5 |插入排序 | Array | [Java](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/InsertSort.java) | [漫画：什么是插入排序？](https://mp.weixin.qq.com/s/McqFXkXucSZldjU46t5cdw) |
 
 # 其他一些基本的算法
-| 1 | 反转字符串 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/reverse_sort.py) | 
+|序号| 题目名称 | 类型 | 题解 | 原理解析 |
+|:-------:|:-------:|:-------:|:-------:|:-------|
+| 1 | 反转字符串 | Array | [Python](https://github.com/loveway/Daily-learning-algorithm/blob/master/Algorithms_2/reverse_sort.py)| 
 
