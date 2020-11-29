@@ -1,31 +1,28 @@
+import java.util.Arrays;
 
-class Bubble {
+public class BubbleSort {
+
     public static void main(String[] args) {
-        // 定义10个数据的数组
-        int[] data = {5, 3, 4, 6, 7, 1, 2};
-
-        bubbleSort(data);
-        // 打印排序后的数组数据
-        for (int datum : data) {
-            System.out.println(datum);
-        }
+        int[] array = {2, 3, 4, -1, 7, 5, 6};
+        bubbleSort(array);
+        System.out.println(Arrays.toString(array));
     }
+    // 快速排序
+    public static void bubbleSort(int[] array) {
 
-    /**
-     * 冒泡排序：每次比较从第一个数据开始，数据两两比较，如果左边数据比右边数据大，则交换左右数据。继续比较。一次比较结束出现一个最大值在最后一个位置。
-     * 
-     * @param data
-     */
-    private static void bubbleSort(int[] data) {
-
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data.length - i - 1; j++) {
-                if (data[j] > data[j + 1]) {
-                   int tmp = data[j];
-                    data[j] = data[j + 1];
-                    data[j + 1] = tmp;
+        for (int i = 0; i < array.length - 1; i++) {
+            // 快速排序的优化，做一个标记，如果某一次没有进入交换，则说明已经是有序的，后面的就不用再循环了
+            boolean isSorted = true;
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
+                    // 如果前一个比后一个大，就交换，大的向后移动
+                    int tmp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = tmp;
+                    isSorted = false;
                 }
             }
+            if (isSorted) break;
         }
     }
 }
